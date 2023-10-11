@@ -18,3 +18,15 @@ enum StructInitError: CustomStringConvertible, Error {
         }
     }
 }
+
+
+enum EnumInitError: CustomStringConvertible, Error {
+    
+    case onlyApplicableToEnum
+    
+    var description: String {
+        switch self {
+        case .onlyApplicableToEnum: return "@EnumInit can only be applied to a enumeration"
+        }
+    }
+}

@@ -12,3 +12,6 @@ public macro stringify<T>(_ value: T) -> (T, String) = #externalMacro(module: "E
 
 @attached(member, names: named(init))
 public macro StructInit() = #externalMacro(module: "ExplanationMacros", type: "StructInitMacro")
+
+@attached(member, names: named(title))
+public macro EnumTitle() = #externalMacro(module: "ExplanationMacros", type: "EnumTitleMacro")

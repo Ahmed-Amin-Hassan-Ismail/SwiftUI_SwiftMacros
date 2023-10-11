@@ -8,13 +8,14 @@ import ExplanationMacros
 
 let testMacros: [String: Macro.Type] = [
     "stringify": StringifyMacro.self,
-    "StructInit": StructInitMacro.self
+    "StructInit": StructInitMacro.self,
+    "EnumTitle": EnumTitleMacro.self
 ]
 #endif
 
 final class ExplanationTests: XCTestCase {
     func testMacro() throws {
-        #if canImport(ExplanationMacros)
+#if canImport(ExplanationMacros)
         assertMacroExpansion(
             """
             #stringify(a + b)
@@ -24,13 +25,13 @@ final class ExplanationTests: XCTestCase {
             """,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
     }
-
+    
     func testMacroWithStringLiteral() throws {
-        #if canImport(ExplanationMacros)
+#if canImport(ExplanationMacros)
         assertMacroExpansion(
             #"""
             #stringify("Hello, \(name)")
@@ -40,9 +41,9 @@ final class ExplanationTests: XCTestCase {
             """#,
             macros: testMacros
         )
-        #else
+#else
         throw XCTSkip("macros are only supported when running tests for the host platform")
-        #endif
+#endif
     }
 }
 
@@ -57,7 +58,7 @@ extension ExplanationTests {
         
         @StructInit
         struct User {
-
+        
             var name: String
             var email: String
             var age: Int
@@ -68,13 +69,13 @@ extension ExplanationTests {
                 self.age = age
             }
         }
-
+        
         
         """, expandedSource: """
         
                 @StructInit
                 struct User {
-
+        
                     var name: String
                     var email: String
                     var age: Int
@@ -83,5 +84,53 @@ extension ExplanationTests {
         
         
         """, macros: testMacros)
+    }
+}
+
+
+// MARK: - Enum Title Text
+
+extension ExplanationTests {
+    
+    func testEnumTitle() {
+        
+        assertMacroExpansion("""
+        
+        @EnumTitle
+        enum Direction {
+            
+            case north
+            case south
+            case east
+            case west
+            
+            var title: String {
+                switch self {
+                case .north:
+                    return "North"
+                case .south:
+                    return "South"
+                case .east:
+                    return "East"
+                case .west:
+                    return "West"
+                }
+            }
+        }
+
+        
+        """, expandedSource: """
+                @EnumTitle
+                enum Direction {
+                    
+                    case north
+                    case south
+                    case east
+                    case west
+                    
+                   
+                }
+        """, macros: testMacros)
+        
     }
 }

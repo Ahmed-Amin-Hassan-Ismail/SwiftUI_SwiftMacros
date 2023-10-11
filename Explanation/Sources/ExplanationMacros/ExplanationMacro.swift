@@ -25,6 +25,8 @@ public struct StringifyMacro: ExpressionMacro {
     }
 }
 
+// MARK: - StructInitMacro
+
 public struct StructInitMacro: MemberMacro {
     public static func expansion(
         of node: AttributeSyntax,
@@ -62,10 +64,50 @@ public struct StructInitMacro: MemberMacro {
     }
 }
 
+
+// MARK: - EnumTitleMacro
+
+public struct EnumTitleMacro: MemberMacro {
+    public static func expansion(
+        of node: AttributeSyntax,
+        providingMembersOf declaration: some DeclGroupSyntax,
+        in context: some MacroExpansionContext) throws -> [DeclSyntax] {
+        
+            guard let enumDecl = declaration.as(EnumDeclSyntax.self) else {
+                
+                throw EnumInitError.onlyApplicableToEnum
+            }
+            
+            let members = enumDecl.memberBlock.members
+            let casesDecl = members.compactMap({ $0.decl.as(EnumCaseDeclSyntax.self )})
+            let casesTitle = casesDecl.compactMap({ $0.elements.first?.name.text })
+            
+            var title: String = """
+            
+                var title: String {
+                    switch self {
+            """
+            
+            for caseTitle in casesTitle {
+                
+                title += "case .\(caseTitle):"
+                title += "return \"\(caseTitle.capitalized)\""
+            }
+            
+            title += """
+               }
+            }
+            """
+            
+            return [DeclSyntax(stringLiteral: title)]
+    }
+}
+
 @main
 struct ExplanationPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         StringifyMacro.self,
-        StructInitMacro.self
+        StructInitMacro.self,
+        EnumTitleMacro.self
     ]
 }

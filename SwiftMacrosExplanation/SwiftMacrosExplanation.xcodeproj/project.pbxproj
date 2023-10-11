@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC69A44F2AD7180400864DF9 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69A44E2AD7180400864DF9 /* Season.swift */; };
 		AC9B3FC32AD6F1500050EC09 /* SwiftMacrosExplanationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9B3FC22AD6F1500050EC09 /* SwiftMacrosExplanationApp.swift */; };
 		AC9B3FC52AD6F1500050EC09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9B3FC42AD6F1500050EC09 /* ContentView.swift */; };
 		AC9B3FC72AD6F1520050EC09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9B3FC62AD6F1520050EC09 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC69A44E2AD7180400864DF9 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		AC9B3FBF2AD6F1500050EC09 /* SwiftMacrosExplanation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftMacrosExplanation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9B3FC22AD6F1500050EC09 /* SwiftMacrosExplanationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMacrosExplanationApp.swift; sourceTree = "<group>"; };
 		AC9B3FC42AD6F1500050EC09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC69A44D2AD717CE00864DF9 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				AC69A44E2AD7180400864DF9 /* Season.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		AC9B3FB62AD6F1500050EC09 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 			children = (
 				AC9B3FC22AD6F1500050EC09 /* SwiftMacrosExplanationApp.swift */,
 				AC9B3FC42AD6F1500050EC09 /* ContentView.swift */,
+				AC69A44D2AD717CE00864DF9 /* Enums */,
 				AC9B3FD32AD6F43D0050EC09 /* Model */,
 				AC9B3FC62AD6F1520050EC09 /* Assets.xcassets */,
 				AC9B3FC82AD6F1520050EC09 /* Preview Content */,
@@ -161,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC69A44F2AD7180400864DF9 /* Season.swift in Sources */,
 				AC9B3FC52AD6F1500050EC09 /* ContentView.swift in Sources */,
 				AC9B3FC32AD6F1500050EC09 /* SwiftMacrosExplanationApp.swift in Sources */,
 				AC9B3FD52AD6F4440050EC09 /* User.swift in Sources */,
