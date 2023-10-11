@@ -12,6 +12,7 @@
 		AC9B3FC72AD6F1520050EC09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9B3FC62AD6F1520050EC09 /* Assets.xcassets */; };
 		AC9B3FCA2AD6F1520050EC09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9B3FC92AD6F1520050EC09 /* Preview Assets.xcassets */; };
 		AC9B3FD22AD6F1620050EC09 /* Explanation in Frameworks */ = {isa = PBXBuildFile; productRef = AC9B3FD12AD6F1620050EC09 /* Explanation */; };
+		AC9B3FD52AD6F4440050EC09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9B3FD42AD6F4440050EC09 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		AC9B3FC42AD6F1500050EC09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC9B3FC62AD6F1520050EC09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9B3FC92AD6F1520050EC09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC9B3FD42AD6F4440050EC09 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				AC9B3FC22AD6F1500050EC09 /* SwiftMacrosExplanationApp.swift */,
 				AC9B3FC42AD6F1500050EC09 /* ContentView.swift */,
+				AC9B3FD32AD6F43D0050EC09 /* Model */,
 				AC9B3FC62AD6F1520050EC09 /* Assets.xcassets */,
 				AC9B3FC82AD6F1520050EC09 /* Preview Content */,
 			);
@@ -75,6 +78,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC9B3FD32AD6F43D0050EC09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC9B3FD42AD6F4440050EC09 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 			files = (
 				AC9B3FC52AD6F1500050EC09 /* ContentView.swift in Sources */,
 				AC9B3FC32AD6F1500050EC09 /* SwiftMacrosExplanationApp.swift in Sources */,
+				AC9B3FD52AD6F4440050EC09 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

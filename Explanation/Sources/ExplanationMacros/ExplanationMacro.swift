@@ -25,9 +25,47 @@ public struct StringifyMacro: ExpressionMacro {
     }
 }
 
+public struct StructInitMacro: MemberMacro {
+    public static func expansion(
+        of node: AttributeSyntax,
+        providingMembersOf declaration: some DeclGroupSyntax,
+        in context: some MacroExpansionContext) throws -> [DeclSyntax] {
+            
+            guard let structDecl = declaration.as(StructDeclSyntax.self) else {
+                
+                throw StructInitError.onlyApplicableToStruct
+            }
+            
+            let members = structDecl.memberBlock.members
+            let variableDecl = members.compactMap({ $0.decl.as(VariableDeclSyntax.self) })
+            let variableNames = variableDecl.compactMap({ $0.bindings.first?.pattern})
+            let variablesType = variableDecl.compactMap({ $0.bindings.first?.typeAnnotation?.type})
+            
+            var initialParameter: String = "init("
+            
+            for (name, type) in zip(variableNames, variablesType) {
+                
+                initialParameter += "\(name): \(type), "
+            }
+            
+            initialParameter = String(initialParameter.dropLast(2))
+            initialParameter += ")"
+            
+            let syntaxNodeString = SyntaxNodeString(stringLiteral: initialParameter)
+            let initialBody = try InitializerDeclSyntax.init(syntaxNodeString, bodyBuilder: {
+                for name in variableNames {
+                   ExprSyntax("self.\(name) = \(name)")
+                }
+            })
+            
+            return [DeclSyntax(initialBody)]
+    }
+}
+
 @main
 struct ExplanationPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         StringifyMacro.self,
+        StructInitMacro.self
     ]
 }
