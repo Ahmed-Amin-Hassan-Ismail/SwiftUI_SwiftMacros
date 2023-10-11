@@ -19,6 +19,7 @@
 		AC9B3F8D2AD6EC8B0050EC09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC9B3F8F2AD6EC8D0050EC09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9B3F922AD6EC8D0050EC09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC9B3F9A2AD6ECEC0050EC09 /* Explanation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Explanation; path = ../Explanation; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +36,7 @@
 		AC9B3F7F2AD6EC8B0050EC09 = {
 			isa = PBXGroup;
 			children = (
+				AC9B3F9A2AD6ECEC0050EC09 /* Explanation */,
 				AC9B3F8A2AD6EC8B0050EC09 /* SwiftMacrosExplanation */,
 				AC9B3F892AD6EC8B0050EC09 /* Products */,
 			);
