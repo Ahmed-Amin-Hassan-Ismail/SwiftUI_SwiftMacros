@@ -1,3 +1,6 @@
+
+import Foundation
+
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
@@ -15,3 +18,6 @@ public macro StructInit() = #externalMacro(module: "ExplanationMacros", type: "S
 
 @attached(member, names: named(title))
 public macro EnumTitle() = #externalMacro(module: "ExplanationMacros", type: "EnumTitleMacro")
+
+@freestanding(expression)
+public macro URL(_ string: String) -> URL = #externalMacro(module: "ExplanationMacros", type: "URLMacro")

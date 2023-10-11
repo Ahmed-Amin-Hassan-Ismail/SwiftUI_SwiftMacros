@@ -9,7 +9,8 @@ import ExplanationMacros
 let testMacros: [String: Macro.Type] = [
     "stringify": StringifyMacro.self,
     "StructInit": StructInitMacro.self,
-    "EnumTitle": EnumTitleMacro.self
+    "EnumTitle": EnumTitleMacro.self,
+    "URL": URLMacro.self
 ]
 #endif
 
@@ -132,5 +133,17 @@ extension ExplanationTests {
                 }
         """, macros: testMacros)
         
+    }
+}
+
+extension ExplanationTests {
+    
+    func testURL() {
+        
+        assertMacroExpansion("""
+        #URL(https://github.com/Ahmed-Amin-Hassan-Ismail)
+        """, expandedSource: """
+        URL(string: https://github.com/Ahmed-Amin-Hassan-Ismail)!
+        """, macros: testMacros)
     }
 }

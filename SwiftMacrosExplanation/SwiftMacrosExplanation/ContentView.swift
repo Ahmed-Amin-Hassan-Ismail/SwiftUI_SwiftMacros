@@ -11,10 +11,10 @@ import Explanation
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Link(destination: #URL("https://github.com/Ahmed-Amin-Hassan-Ismail")
+                 , label: {
+                Text("My GitHub")
+            })
         }
         .padding()
     }

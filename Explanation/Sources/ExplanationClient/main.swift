@@ -17,25 +17,13 @@ struct User {
     var phoneNumber: String
 }
 
-
+@EnumTitle
 enum Direction {
     
     case north
     case south
     case east
     case west
-    
-    var title: String {
-        switch self {
-        case .north:
-            return "North"
-        case .south:
-            return "South"
-        case .east:
-            return "East"
-        case .west:
-            return "West"
-        }
-    }
 }
 
+let url = #URL("https://github.com/Ahmed-Amin-Hassan-Ismail")

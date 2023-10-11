@@ -30,3 +30,18 @@ enum EnumInitError: CustomStringConvertible, Error {
         }
     }
 }
+
+enum URLMacroError: CustomStringConvertible, Error {
+    
+    case requiresStaticStringLiteral
+    case malforedURL(urlString: String)
+    
+    var description: String {
+        switch self {
+        case .requiresStaticStringLiteral:
+            return "#URL requires a static string literal"
+        case .malforedURL(let urlString):
+            return "The input URL is malformed: \(urlString)"
+        }
+    }
+}
